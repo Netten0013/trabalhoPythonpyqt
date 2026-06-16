@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>748</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Sistema de Ordem de Serviço</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow { background-color: #eeeeee; }
+QLabel#lblTitulo, QLabel#lblLoginTitulo { font-size: 22px; font-weight: bold; color: #222222; }
+QLabel#lblSubtitulo { color: #444444; font-size: 12px; }
+QFrame#loginCard, QFrame#cardCliente, QFrame#cardCarro, QFrame#cardServico, QFrame#cardOS, QFrame#cardListarOS {
+    background-color: #f8f8f8;
+    border: 1px solid #cfcfcf;
+}
+QFrame#topBar {
+    background-color: #dddddd;
+    border-radius: 0px;
+}
+QLabel#lblSistema { color: #222222; font-size: 18px; font-weight: bold; }
+QPushButton {
+    background-color: #e6e6e6;
+    color: #111111;
+    border: 1px solid #9c9c9c;
+    padding: 6px 10px;
+}
+QPushButton:hover { background-color: #d7d7d7; }
+QPushButton#btnExcluirCliente, QPushButton#btnExcluirCarro, QPushButton#btnExcluirServico, QPushButton#btnExcluirOS {
+    background-color: #e8c5c5;
+}
+QPushButton#btnExcluirCliente:hover, QPushButton#btnExcluirCarro:hover, QPushButton#btnExcluirServico:hover, QPushButton#btnExcluirOS:hover {
+    background-color: #ddb0b0;
+}
+QPushButton#btnLimparCliente, QPushButton#btnLimparCarro, QPushButton#btnLimparServico, QPushButton#btnLimparOS, QPushButton#btnSair {
+    background-color: #dcdcdc;
+}
+QPushButton#btnLimparCliente:hover, QPushButton#btnLimparCarro:hover, QPushButton#btnLimparServico:hover, QPushButton#btnLimparOS:hover, QPushButton#btnSair:hover {
+    background-color: #cccccc;
+}
+QPushButton#btnCardCliente, QPushButton#btnCardCarro, QPushButton#btnCardServico, QPushButton#btnCardOS, QPushButton#btnCardListarOS {
+    background-color: #f5f5f5;
+    color: #111111;
+    border: 1px solid #bcbcbc;
+    text-align: left;
+    padding: 12px;
+    font-size: 14px;
+}
+QPushButton#btnCardCliente:hover, QPushButton#btnCardCarro:hover, QPushButton#btnCardServico:hover, QPushButton#btnCardOS:hover, QPushButton#btnCardListarOS:hover {
+    background-color: #eeeeee;
+}
+QLineEdit, QComboBox, QTextEdit, QDateEdit, QDoubleSpinBox, QSpinBox {
+    background-color: white;
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+}
+QTableWidget {
+    background-color: white;
+    border: 1px solid #bbbbbb;
+    gridline-color: #dddddd;
+}
+QHeaderView::section {
+    background-color: #dddddd;
+    color: #111111;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #c0c0c0;
+}
+QTabWidget::pane { border: none; }
+QTabBar::tab {
+    background: #dddddd;
+    color: #222222;
+    padding: 6px 12px;
+    border: 1px solid #bbbbbb;
+}
+QTabBar::tab:selected { background: white; color: #111111; }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutMain">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="pageLogin">
+       <layout class="QVBoxLayout" name="verticalLayoutLoginPage">
+        <item>
+         <spacer name="verticalSpacerLoginTop">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>80</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayoutLoginCenter">
+          <item>
+           <spacer name="horizontalSpacerLoginLeft">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>250</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="loginCard">
+            <property name="minimumSize">
+             <size>
+              <width>420</width>
+              <height>430</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayoutLoginCard">
+             <property name="leftMargin">
+              <number>35</number>
+             </property>
+             <property name="topMargin">
+              <number>35</number>
+             </property>
+             <property name="rightMargin">
+              <number>35</number>
+             </property>
+             <property name="bottomMargin">
+              <number>35</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="lblLoginTitulo">
+               <property name="text">
+                <string>Login</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblSubtitulo">
+               <property name="text">
+                <string>Entre para usar o sistema</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacerLogin1">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>10</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblUsuario">
+               <property name="text">
+                <string>Usuário</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="txtUsuario">
+               <property name="placeholderText">
+                <string>Digite seu usuário</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblSenha">
+               <property name="text">
+                <string>Senha</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="txtSenha">
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
+               </property>
+               <property name="placeholderText">
+                <string>Digite sua senha</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnEntrar">
+               <property name="text">
+                <string>Entrar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblLoginInfo">
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacerLoginRight">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>250</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacerLoginBottom">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>80</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageSistema">
+       <layout class="QVBoxLayout" name="verticalLayoutSistema">
+        <item>
+         <widget class="QFrame" name="topBar">
+          <layout class="QHBoxLayout" name="horizontalLayoutTopBar">
+           <item>
+            <widget class="QLabel" name="lblSistema">
+             <property name="text">
+              <string>Sistema de Oficina</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacerTop">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnSair">
+             <property name="text">
+              <string>Sair</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tabInicio">
+           <attribute name="title">
+            <string>Início</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayoutInicio">
+            <item>
+             <widget class="QLabel" name="lblTitulo">
+              <property name="text">
+               <string>Menu principal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QGridLayout" name="gridLayoutCards">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="btnCardCliente">
+                <property name="minimumSize">
+                 <size>
+                  <width>240</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Clientes</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="btnCardCarro">
+                <property name="minimumSize">
+                 <size>
+                  <width>240</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Carros</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="btnCardServico">
+                <property name="minimumSize">
+                 <size>
+                  <width>240</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Serviços</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="btnCardOS">
+                <property name="minimumSize">
+                 <size>
+                  <width>240</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Ordem de Serviço</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="btnCardListarOS">
+                <property name="minimumSize">
+                 <size>
+                  <width>240</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Listar OS</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabCliente">
+           <attribute name="title">
+            <string>Cliente</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayoutCliente">
+            <item>
+             <widget class="QLabel" name="lblTituloCliente">
+              <property name="text">
+               <string>Cadastro de Cliente</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QFormLayout" name="formLayoutCliente">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lblClienteId">
+                <property name="text">
+                 <string>ID</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="txtClienteId">
+                <property name="placeholderText">
+                 <string>Automático</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lblClienteNome">
+                <property name="text">
+                 <string>Nome</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="txtClienteNome">
+                <property name="placeholderText">
+                 <string>Nome completo</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="lblClienteCpf">
+                <property name="text">
+                 <string>CPF/CNPJ</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="txtClienteCpf">
+                <property name="placeholderText">
+                 <string>000.000.000-00</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="lblClienteTelefone">
+                <property name="text">
+                 <string>Telefone</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="txtClienteTelefone">
+                <property name="placeholderText">
+                 <string>(00) 00000-0000</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="lblClienteEmail">
+                <property name="text">
+                 <string>E-mail</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="txtClienteEmail">
+                <property name="placeholderText">
+                 <string>email@exemplo.com</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="lblClienteEndereco">
+                <property name="text">
+                 <string>Endereço</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="txtClienteEndereco">
+                <property name="placeholderText">
+                 <string>Rua, número, bairro</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="buttonsCliente">
+              <item>
+               <widget class="QPushButton" name="btnNovoCliente">
+                <property name="text">
+                 <string>Novo</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSalvarCliente">
+                <property name="text">
+                 <string>Salvar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnEditarCliente">
+                <property name="text">
+                 <string>Editar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnExcluirCliente">
+                <property name="text">
+                 <string>Excluir</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnLimparCliente">
+                <property name="text">
+                 <string>Limpar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tblClientes">
+              <column>
+               <property name="text">
+                <string>ID</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Nome</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>CPF/CNPJ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Telefone</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>E-mail</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabCarro">
+           <attribute name="title">
+            <string>Carro</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayoutCarro">
+            <item>
+             <widget class="QLabel" name="lblTituloCarro">
+              <property name="text">
+               <string>Cadastro de Carro</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QFormLayout" name="formLayoutCarro">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lblCarroId">
+                <property name="text">
+                 <string>ID</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="txtCarroId">
+                <property name="placeholderText">
+                 <string>Automático</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lblCarroCliente">
+                <property name="text">
+                 <string>Cliente</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="cmbCarroCliente"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="lblCarroMarca">
+                <property name="text">
+                 <string>Marca</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="txtCarroMarca">
+                <property name="placeholderText">
+                 <string>Ex: Toyota</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="lblCarroModelo">
+                <property name="text">
+                 <string>Modelo</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="txtCarroModelo">
+                <property name="placeholderText">
+                 <string>Ex: Corolla</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="lblCarroPlaca">
+                <property name="text">
+                 <string>Placa</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="txtCarroPlaca">
+                <property name="placeholderText">
+                 <string>ABC-1234</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="lblCarroAno">
+                <property name="text">
+                 <string>Ano</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QSpinBox" name="spnCarroAno">
+                <property name="minimum">
+                 <number>1900</number>
+                </property>
+                <property name="maximum">
+                 <number>2100</number>
+                </property>
+                <property name="value">
+                 <number>2026</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="buttonsCarro">
+              <item>
+               <widget class="QPushButton" name="btnNovoCarro">
+                <property name="text">
+                 <string>Novo</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSalvarCarro">
+                <property name="text">
+                 <string>Salvar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnEditarCarro">
+                <property name="text">
+                 <string>Editar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnExcluirCarro">
+                <property name="text">
+                 <string>Excluir</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnLimparCarro">
+                <property name="text">
+                 <string>Limpar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tblCarros">
+              <column>
+               <property name="text">
+                <string>ID</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Cliente</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Marca</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Modelo</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Placa</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Ano</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabServico">
+           <attribute name="title">
+            <string>Serviço</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayoutServico">
+            <item>
+             <widget class="QLabel" name="lblTituloServico">
+              <property name="text">
+               <string>Cadastro de Serviço</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QFormLayout" name="formLayoutServico">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lblServicoId">
+                <property name="text">
+                 <string>ID</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="txtServicoId">
+                <property name="placeholderText">
+                 <string>Automático</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lblServicoNome">
+                <property name="text">
+                 <string>Nome do Serviço</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="txtServicoNome">
+                <property name="placeholderText">
+                 <string>Ex: Troca de óleo</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="lblServicoDescricao">
+                <property name="text">
+                 <string>Descrição</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QTextEdit" name="txtServicoDescricao">
+                <property name="placeholderText">
+                 <string>Detalhes do serviço</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="lblServicoValor">
+                <property name="text">
+                 <string>Valor R$</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QDoubleSpinBox" name="spnServicoValor">
+                <property name="prefix">
+                 <string>R$ </string>
+                </property>
+                <property name="maximum">
+                 <double>999999.989999999990687</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="buttonsServico">
+              <item>
+               <widget class="QPushButton" name="btnNovoServico">
+                <property name="text">
+                 <string>Novo</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSalvarServico">
+                <property name="text">
+                 <string>Salvar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnEditarServico">
+                <property name="text">
+                 <string>Editar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnExcluirServico">
+                <property name="text">
+                 <string>Excluir</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnLimparServico">
+                <property name="text">
+                 <string>Limpar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tblServicos">
+              <column>
+               <property name="text">
+                <string>ID</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Serviço</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Descrição</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Valor</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabOrdemServico">
+           <attribute name="title">
+            <string>Ordem de Serviço</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayoutOS">
+            <item>
+             <widget class="QLabel" name="lblTituloOS">
+              <property name="text">
+               <string>Ordem de Serviço</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QFormLayout" name="formLayoutOS">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lblOSId">
+                <property name="text">
+                 <string>Nº OS</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="txtOSId">
+                <property name="placeholderText">
+                 <string>Automático</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lblOSCliente">
+                <property name="text">
+                 <string>Cliente</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="cmbOSCliente"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="lblOSCarro">
+                <property name="text">
+                 <string>Carro</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="cmbOSCarro"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="lblOSServico">
+                <property name="text">
+                 <string>Serviço</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QComboBox" name="cmbOSServico"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="lblOSData">
+                <property name="text">
+                 <string>Data</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QDateEdit" name="dateOS">
+                <property name="calendarPopup">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="lblOSStatus">
+                <property name="text">
+                 <string>Status</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QComboBox" name="cmbOSStatus">
+                <item>
+                 <property name="text">
+                  <string>Aberta</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Em andamento</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Finalizada</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cancelada</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="lblOSValor">
+                <property name="text">
+                 <string>Valor Total R$</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QDoubleSpinBox" name="spnOSValor">
+                <property name="prefix">
+                 <string>R$ </string>
+                </property>
+                <property name="maximum">
+                 <double>999999.989999999990687</double>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="lblOSObs">
+                <property name="text">
+                 <string>Observações</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QTextEdit" name="txtOSObs">
+                <property name="placeholderText">
+                 <string>Problema relatado, peças utilizadas, detalhes...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="buttonsOS">
+              <item>
+               <widget class="QPushButton" name="btnNovaOS">
+                <property name="text">
+                 <string>Nova OS</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSalvarOS">
+                <property name="text">
+                 <string>Salvar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnEditarOS">
+                <property name="text">
+                 <string>Editar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnExcluirOS">
+                <property name="text">
+                 <string>Excluir</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnLimparOS">
+                <property name="text">
+                 <string>Limpar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tblOrdensServico">
+              <column>
+               <property name="text">
+                <string>Nº OS</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Cliente</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Carro</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Serviço</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Data</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Status</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Valor</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabListarOS">
+           <attribute name="title">
+            <string>Listar Ordem de Serviço</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayoutListarOS">
+            <item>
+             <widget class="QLabel" name="lblTituloListarOS">
+              <property name="text">
+               <string>Lista de Ordens de Serviço</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="filtrosOS">
+              <item>
+               <widget class="QLineEdit" name="txtPesquisarOS">
+                <property name="placeholderText">
+                 <string>Pesquisar por cliente, placa, serviço ou número da OS</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmbFiltroStatus">
+                <item>
+                 <property name="text">
+                  <string>Todos os status</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Aberta</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Em andamento</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Finalizada</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cancelada</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnPesquisarOS">
+                <property name="text">
+                 <string>Pesquisar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnAtualizarOS">
+                <property name="text">
+                 <string>Atualizar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tblListarOrdens">
+              <column>
+               <property name="text">
+                <string>Nº OS</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Cliente</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Telefone</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Carro</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Placa</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Serviço</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Data</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Status</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Valor</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
